@@ -24,4 +24,13 @@ typedef enum
     LOC_DETECTIVE_OFFICE = 5
 } LocationID;
 
+/* Suspect IDs */
+typedef enum
+{
+    SUSPECT_HOME_MINISTER = 0,
+    SUSPECT_NSA = 1,
+    SUSPECT_PHYSICIAN = 2,
+    SUSPECT_CHIEF_STAFF = 3
+} SuspectID;
+
 #endif
