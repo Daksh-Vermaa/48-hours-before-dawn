@@ -9,8 +9,8 @@
 
 /*Game Constants*/
 #define NUM_SUSPECTS 4
-#define NUM_LOCATIONS 
-#define MAX_EVIDENCE
+#define NUM_LOCATIONS 6
+#define MAX_EVIDENCE 32
 #define SAVE_FILE "detective_save.dat"
 
 
