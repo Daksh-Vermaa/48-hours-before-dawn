@@ -11,7 +11,7 @@
 #define NUM_SUSPECTS 4
 #define NUM_LOCATIONS 6
 #define MAX_EVIDENCE 32
-#define SAVE_FILE "detective_save.dat"
+#define SAVE_FILE "crime_scene.dat" //Change save file name
 
 /* Locations IDs */
 typedef enum
@@ -33,6 +33,7 @@ typedef enum
     SUSPECT_CHIEF_STAFF = 3
 } SuspectID;
 
+/* Evidence Flag */
 typedef enum
 {
     EV_NOTEBOOK = (1 << 0),
@@ -59,5 +60,25 @@ typedef struct
     int interrogated;
     int times_questioned;
 } Suspect;
+
+/* Evidence Structure */
+typedef struct 
+{
+    int id;
+    char name[100];
+    char description[300];
+    unsigned int unlocks;
+    int discovered;
+} Evidence;
+
+/* Location Structure */
+typedef struct 
+{
+    int id;
+    char name[50];
+    int visited;
+    int times_visited;
+    int time_cost;
+} Location;
 
 #endif
