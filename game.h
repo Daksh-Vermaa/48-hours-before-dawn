@@ -33,4 +33,20 @@ typedef enum
     SUSPECT_CHIEF_STAFF = 3
 } SuspectID;
 
+typedef enum
+{
+    EV_NOTEBOOK = (1 << 0),
+    EV_TEA_CUP = (1 << 1),
+    EV_ENZYME_DATA = (1 << 2),
+    EV_CAMERA_GAP = (1 << 3),
+    EV_RESHUFFLE_PLAN = (1 << 4),
+    EV_VIAL_REPLACEMENT = (1 << 5),
+    EV_KITCHEN_LOG = (1 << 6),
+    EV_BIOMETRIC_LOG = (1 << 7),
+    EV_MEETING_DELETION = (1 << 8),
+    EV_INTEL_CLEARANCE = (1 << 9),
+    EV_TOXIN_REPORT = (1 << 10),
+    EV_INJECTION_LOG = (1 << 11)
+} EvidenceFlag;
+
 #endif
