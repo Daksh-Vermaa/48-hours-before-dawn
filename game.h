@@ -49,4 +49,15 @@ typedef enum
     EV_INJECTION_LOG = (1 << 11)
 } EvidenceFlag;
 
+/* Suspect Structure */
+typedef struct 
+{
+    char name[50];
+    int is_killer;
+    int trust;
+    unsigned int known_contradictions;
+    int interrogated;
+    int times_questioned;
+} Suspect;
+
 #endif
