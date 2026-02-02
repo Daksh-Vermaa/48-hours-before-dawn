@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Build output
+detective_game
+crime_scene
+*.out
+*.exe
+
+# Object files
+obj/
+*.o
+
+# Temporary / editor files
+*.swp
+*.swo
+*.tmp
+*~
+.vscode/
+.idea/
+
+# Debug files
+*.dSYM/
+
+# Save data / runtime state
+detective_save.dat
+
+# Logs
+*.log
