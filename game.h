@@ -50,6 +50,33 @@ typedef enum
     EV_INJECTION_LOG = (1 << 11)
 } EvidenceFlag;
 
+/* Story Nodes */
+typedef enum 
+{
+    NODE_INTRO = 0,
+    NODE_OPENING_SCENE,
+    NODE_IMMEDIATE_CIRCLE,
+    NODE_CRIME_SCENE,
+    NODE_MEDICAL_WING,
+    NODE_INTEL_ROOM,
+    NODE_INTERROGATIONS,
+    NODE_PHYSICIAN_BREAKS,
+    NODE_MISSING_PIECE,
+    NODE_FINAL_CONFRONTATION,
+    NODE_TRUTH_ASSEMBLES,
+    NODE_ACCUSATION,
+    NODE_ENDING
+} StoryNode;
+
+/* Endings */
+typedef enum 
+{
+    END_TRUE_RESOLUTION,
+    END_PARTIAL_TRUTH,
+    END_FALSE_ACCUSATION,
+    END_TIMEOUT
+} Ending;
+
 /* Suspect Structure */
 typedef struct 
 {
