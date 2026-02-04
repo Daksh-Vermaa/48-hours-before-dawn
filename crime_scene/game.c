@@ -27,7 +27,32 @@ void update_game_state(GameState *state) {
 void deduct_time(GameState *state, int hours) {
     state->hours_remaining -= hours;
     if (state->hours_remaining < 0) {
-    state->hours_remaining = 0;
+        state->hours_remaining = 0;
     }
     update_game_state(state);
+}
+
+int check_win_condition(GameState *state, int accused) {
+    /* Required evidence for true resolution */
+    unsigned int required_evidence = EV_ENZYME_DATA | EV_VIAL_REPLACEMENT |
+    EV_CAMERA_GAP | EV_INTEL_CLEARANCE;
+    /* Check if Home Minister and NSA are both implicated (conspiracy) */
+    int has_required_evidence = (state->evidence_flags & required_evidence) == required_evidence;
+
+    /* The true killer is the NSA (Meera Iyer) as mastermind */
+    /* But the conspiracy involves Home Minister too */
+
+    if (accused == SUSPECT_NSA && has_required_evidence) {
+        state->ending_type = END_TRUE_RESOLUTION;
+        return 1;
+    } 
+    else if ((accused == SUSPECT_HOME_MINISTER || accused == SUSPECT_NSA) && 
+    (state->evidence_flags & (EV_ENZYME_DATA | EV_VIAL_REPLACEMENT))) {
+        state->ending_type = END_PARTIAL_TRUTH;
+        return 1;
+    } 
+    else {
+        state->ending_type = END_FALSE_ACCUSATION;
+        return 0;
+    }
 }

@@ -4,7 +4,7 @@
 void init_suspects(Suspect suspects[]) {
     /* Home Affairs Minister - Arvind Kaul */
     strcpy(suspects[SUSPECT_HOME_MINISTER].name, "Arvind Kaul (Home Affairs Minister)");
-    suspects[SUSPECT_HOME_MINISTER].is_killer = 1;
+    suspects[SUSPECT_HOME_MINISTER].is_killer = 1; /* Part of conspiracy */
     suspects[SUSPECT_HOME_MINISTER].trust = 50;
     suspects[SUSPECT_HOME_MINISTER].known_contradictions = 0;
     suspects[SUSPECT_HOME_MINISTER].interrogated = 0;
@@ -12,7 +12,7 @@ void init_suspects(Suspect suspects[]) {
 
     /* National Security Advisor - Meera Iyer */
     strcpy(suspects[SUSPECT_NSA].name, "Meera Iyer (National Security Advisor)");
-    suspects[SUSPECT_NSA].is_killer = 1;
+    suspects[SUSPECT_NSA].is_killer = 1; /* Mastermind */
     suspects[SUSPECT_NSA].trust = 50;
     suspects[SUSPECT_NSA].known_contradictions = 0;
     suspects[SUSPECT_NSA].interrogated = 0;
@@ -20,7 +20,7 @@ void init_suspects(Suspect suspects[]) {
     
     /* Personal Physician - Dr. Raghav Sen */
     strcpy(suspects[SUSPECT_PHYSICIAN].name, "Dr. Raghav Sen (Personal Physician)");
-    suspects[SUSPECT_PHYSICIAN].is_killer = 0;
+    suspects[SUSPECT_PHYSICIAN].is_killer = 0; /* Unwitting accomplice */
     suspects[SUSPECT_PHYSICIAN].trust = 50;
     suspects[SUSPECT_PHYSICIAN].known_contradictions = 0;
     suspects[SUSPECT_PHYSICIAN].interrogated = 0;
