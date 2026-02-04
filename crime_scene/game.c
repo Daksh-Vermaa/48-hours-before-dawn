@@ -16,10 +16,18 @@ void init_game_state(GameState *state) {
     }
 }
 
-void update_game_state (GameState *state) {
+void update_game_state(GameState *state) {
     if (state -> hours_remaining <= 0)
     {
         state->game_over = 1;
         state->ending_type = END_TIMEOUT;
     }
+}
+
+void deduct_time(GameState *state, int hours) {
+    state->hours_remaining -= hours;
+    if (state->hours_remaining < 0) {
+    state->hours_remaining = 0;
+    }
+    update_game_state(state);
 }
