@@ -117,6 +117,7 @@ typedef struct
     int suspect_trust[NUM_SUSPECTS];
     int current_story_node;
     int game_over;
+    Ending ending_type;
     int accusation_made;
     int accused_suspect;
 }GameState;
@@ -127,4 +128,4 @@ void update_game_state(GameState *state);
 int check_win_condition(GameState *state, int accused);
 void deduct_time(GameState *state, int hours);
 
-#endif
+#endif /* GAME_H */
