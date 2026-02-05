@@ -96,6 +96,34 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             }
             break;
         
+        case LOC_MEDICAL_WING:
+            print_slowly("The hospital smells like disinfectant and guilt.", 800);
+            wait_for_space();
+            
+            if (loc->times_visited == 1) {
+                print_slowly("\nYou order a secondary autopsy.", 800);
+                print_slowly("Dr. Sen stiffens. \"This is unnecessary.\"", 800);
+                print_slowly("You insist.", 800);
+                wait_for_space();
+                
+                print_slowly("\nHours pass...", 1000);
+                wait_for_space();
+                
+                print_slowly("\nA junior lab technician approaches quietly.", 800);
+                print_slowly("\"There's something unusual,\" she whispers.", 800);
+                print_slowly("\"An enzyme response inconsistent with natural cardiac failure.\"", 1000);
+                wait_for_space();
+                
+                print_slowly("\nNot proof. But not nothing.", 800);
+                collect_evidence(state, EV_ENZYME_DATA);
+                collect_evidence(state, EV_TOXIN_REPORT);
+            } else {
+                print_slowly("\nThe lab is processing your requests. The toxin data confirms your suspicions.", 800);
+            }
+            break;
+            
+        
+    }
 
     wait_for_space();
     deduct_time(state, loc->time_cost);
