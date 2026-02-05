@@ -1,4 +1,5 @@
 #include "evidence.h"
+#include "../ui/ui.h"
 #include <string.h>
 
 void init_evidence(Evidence evidence_list[]) {
@@ -51,4 +52,60 @@ void init_evidence(Evidence evidence_list[]) {
     evidence_list[idx].unlocks = 0;
     evidence_list[idx].discovered = 0;
     idx++;
+}
+
+void collect_evidence(GameState *state, unsigned int evidence_flag) {
+    if ((state->evidence_flags & evidence_flag) == 0) {
+        state->evidence_flags |= evidence_flag;
+        printf("\n[NEW EVIDENCE COLLECTED]\n");
+    }
+}
+
+int has_evidence(GameState *state, unsigned int evidence_flag) {
+    return (state->evidence_flags & evidence_flag) != 0;
+}
+
+const char* get_evidence_name(unsigned int flag) {
+    switch(flag) {
+        case EV_NOTEBOOK: return "PM's Notebook";
+        case EV_TEA_CUP: return "Tea Cup";
+        case EV_ENZYME_DATA: return "Enzyme Data";
+        case EV_CAMERA_GAP: return "Camera Gap";
+        case EV_RESHUFFLE_PLAN: return "Reshuffle Plan";
+        case EV_VIAL_REPLACEMENT: return "Vial Replacement";
+        case EV_KITCHEN_LOG: return "Kitchen Log";
+        case EV_BIOMETRIC_LOG: return "Biometric Log";
+        case EV_MEETING_DELETION: return "Meeting Deletion";
+        case EV_INTEL_CLEARANCE: return "Intel Clearance";
+        case EV_TOXIN_REPORT: return "Toxin Report";
+        case EV_INJECTION_LOG: return "Injection Log";
+        default: return "Unknown Evidence";
+    }
+}
+
+void display_evidence_board(GameState *state, Evidence evidence_list[]) {
+    clear_screen();
+    print_header("EVIDENCE BOARD", state->hours_remaining);
+    printf("Collected Evidence:\n\n");
+    
+    int count = 0;
+    unsigned int flags[] = {
+        EV_NOTEBOOK, EV_TEA_CUP, EV_ENZYME_DATA, EV_CAMERA_GAP,
+        EV_RESHUFFLE_PLAN, EV_VIAL_REPLACEMENT, EV_KITCHEN_LOG,
+        EV_BIOMETRIC_LOG, EV_MEETING_DELETION, EV_INTEL_CLEARANCE,
+        EV_TOXIN_REPORT, EV_INJECTION_LOG 
+    };
+
+    for (int i = 0; i < 12; i++) {
+        if (has_evidence(state, flags[i])) {
+            printf("  [%d] %s\n", ++count, get_evidence_name(flags[i]));
+        }
+    }
+
+    if (count == 0) {
+        printf("  No evidence collected yet.\n");
+    }
+    
+    printf("\n");
+    wait_for_space();
 }
