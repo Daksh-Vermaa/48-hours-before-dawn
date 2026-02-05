@@ -35,3 +35,15 @@ void init_suspects(Suspect suspects[]) {
     suspects[SUSPECT_CHIEF_STAFF].interrogated = 0;
     suspects[SUSPECT_CHIEF_STAFF].times_questioned = 0;
 }
+
+void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
+    
+    Suspect *suspect = &suspects[suspect_id];
+    suspect->interrogated = 1;
+    suspect->times_questioned++;
+    clear_screen();
+    print_header("INTERROGATION ROOM", state->hours_remaining);
+    
+    printf("You sit across from %s.\n\n", get_suspect_name(suspect_id));
+    wait_for_space();
+}
