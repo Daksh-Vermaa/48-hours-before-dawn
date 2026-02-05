@@ -121,7 +121,29 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
                 print_slowly("\nThe lab is processing your requests. The toxin data confirms your suspicions.", 800);
             }
             break;
+
+        
+        case LOC_INTEL_ROOM:
+            print_slowly("Screens glow softly in the dark room.", 800);
+            print_slowly("Surveillance logs appear clean.", 800);
+            wait_for_space();
             
+            if (loc->times_visited == 1) {
+                print_slowly("\nToo clean.", 800);
+                wait_for_space();
+                
+                print_slowly("\nYou notice a gap in the corridor camera feed.", 800);
+                print_slowly("Outside the private medical room.", 800);
+                print_slowly("17 minutes marked 'under maintenance'.", 800);
+                wait_for_space();
+                
+                print_slowly("\nAuthorized by: Meera Iyer, National Security Advisor.", 1000);
+                collect_evidence(state, EV_CAMERA_GAP);
+                collect_evidence(state, EV_INTEL_CLEARANCE);
+            } else {
+                print_slowly("\nThe camera gap remains unexplained. Intelligence clearance was required.", 800);
+            }
+            break;
         
     }
 
