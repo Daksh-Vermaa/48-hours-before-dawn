@@ -158,6 +158,36 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             print_slowly("\"Whatever truth you have... make sure it's solid.\"", 1000);
             break;
             
+        case LOC_INTERROGATION:
+            print_slowly("Four suspects. Four versions of truth.", 800);
+            printf("\nWho do you want to interrogate?\n");
+            printf("  1. Arvind Kaul (Home Affairs Minister)\n");
+            printf("  2. Meera Iyer (National Security Advisor)\n");
+            printf("  3. Dr. Raghav Sen (Personal Physician)\n");
+            printf("  4. Nalin Verma (Chief of Staff)\n");
+            printf("  5. Return to main menu\n");
+            
+            int choice = get_choice(5);
+            if (choice <= 4) {
+                interrogate_suspect(state, suspects, choice - 1);
+            }
+            return; /* Time already deducted in interrogate */
+            
+        case LOC_DETECTIVE_OFFICE:
+            print_slowly("Your office. A quiet space to think.", 800);
+            printf("\n  1. Review evidence board\n");
+            printf("  2. Save game\n");
+            printf("  3. Return\n");
+            
+            int off_choice = get_choice(3);
+            if (off_choice == 1) {
+                /* Evidence board handled separately */
+                return;
+            } else if (off_choice == 2) {
+                /* Save handled in main */
+                return;
+            }
+            return; /* No time cost */
     }
 
     wait_for_space();
