@@ -1,4 +1,5 @@
 #include "story.h"
+#include "../ui/ui.h"
 #include "../suspects/suspects.h"
 #include <stdio.h>
 
@@ -278,13 +279,13 @@ void play_ending(GameState *state, Suspect suspects[]) {
             print_slowly("", 500);
             print_slowly("The Prime Minister deserved better.", 1500);
             break;
-}
+    }
 
-printf("\n");
-print_separator();
-printf("\n              GAME OVER\n");
-print_separator();
-printf("\n");
+    printf("\n");
+    print_separator();
+    printf("\n              GAME OVER\n");
+    print_separator();
+    printf("\n");
 
-wait_for_space();
+    wait_for_space();
 }

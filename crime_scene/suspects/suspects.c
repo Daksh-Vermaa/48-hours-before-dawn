@@ -1,4 +1,5 @@
 #include "suspects.h"
+#include "../ui/ui.h"
 #include <string.h>
 
 void init_suspects(Suspect suspects[]) {
