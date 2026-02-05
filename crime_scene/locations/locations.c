@@ -145,6 +145,19 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             }
             break;
         
+        case LOC_PRESS_AREA:
+            print_slowly("Kavita Rao stands with her phone switched off.", 800);
+            print_slowly("It vibrates constantly in her hand.", 800);
+            wait_for_space();
+            
+            print_slowly("\n\"We can hold the press for forty-eight hours,\" she says.", 800);
+            print_slowly("\"After that, rumors become news.\"", 800);
+            wait_for_space();
+            
+            print_slowly("\nShe looks at you carefully.", 800);
+            print_slowly("\"Whatever truth you have... make sure it's solid.\"", 1000);
+            break;
+            
     }
 
     wait_for_space();
