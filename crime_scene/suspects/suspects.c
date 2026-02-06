@@ -99,4 +99,21 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
                 suspect->known_contradictions |= (1 << 0);
             }
             break;
+
+        case SUSPECT_CHIEF_STAFF:
+            print_slowly("Nalin Verma hasn't slept in days.", 800);
+            print_slowly("\"He trusted the people in this room.\"", 800);
+            wait_for_space();
+            
+            if (state->evidence_flags & EV_RESHUFFLE_PLAN) {
+                print_slowly("\nYou ask why the meeting was deleted from the schedule.", 600);
+                print_slowly("He looks down.", 600);
+                print_slowly("\"He asked me to. He wanted discretion.\"", 800);
+                state->evidence_flags |= EV_MEETING_DELETION;
+                suspect->known_contradictions |= (1 << 0);
+            }
+            break;
+}
+    wait_for_space();
+    deduct_time(state, 2);
 }
