@@ -64,4 +64,20 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
             print_slowly("\n\"Did you threaten him?\"", 600);
             print_slowly("\"No. I argued. That's not a crime.\"", 800);
             break;
+        
+        case SUSPECT_NSA:
+            print_slowly("Meera Iyer studies you the way soldiers study terrain.", 800);
+            print_slowly("\"Ask your questions, Detective.\"", 800);
+            wait_for_space();
+            
+            if (state->evidence_flags & EV_CAMERA_GAP) {
+                print_slowly("\nYou ask about the camera maintenance.", 600);
+                print_slowly("She doesn't deny it.", 600);
+                print_slowly("\"National security protocol. Some things don't need to be recorded.\"", 800);
+                wait_for_space();
+                print_slowly("\"Which things?\"", 600);
+                print_slowly("She smiles faintly. \"The dangerous ones.\"", 800);
+                suspect->known_contradictions |= (1 << 0);
+            }
+            break;
 }
