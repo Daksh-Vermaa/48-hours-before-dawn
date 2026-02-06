@@ -80,4 +80,23 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
                 suspect->known_contradictions |= (1 << 0);
             }
             break;
+
+        case SUSPECT_PHYSICIAN:
+            print_slowly("Dr. Sen looks exhausted. Offended.", 800);
+            print_slowly("\"I've managed his health for twelve years.\"", 800);
+            wait_for_space();
+            
+            if (state->evidence_flags & EV_ENZYME_DATA) {
+                print_slowly("\nYou confront him with the enzyme data.", 600);
+                print_slowly("His shoulders sag.", 600);
+                wait_for_space();
+                print_slowly("\"I didn't kill him. I swear.\"", 800);
+                print_slowly("\"But... the vial. Someone replaced it.\"", 800);
+                print_slowly("\"I administered the injection. It was logged. Scheduled. Normal.\"", 800);
+                wait_for_space();
+                print_slowly("\"But the vial was different. I noticed... too late.\"", 800);
+                state->evidence_flags |= EV_VIAL_REPLACEMENT;
+                suspect->known_contradictions |= (1 << 0);
+            }
+            break;
 }
