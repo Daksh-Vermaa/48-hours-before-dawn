@@ -46,4 +46,22 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
     
     printf("You sit across from %s.\n\n", get_suspect_name(suspect_id));
     wait_for_space();
+
+    switch(suspect_id) {
+        case SUSPECT_HOME_MINISTER:
+            print_slowly("Arvind Kaul speaks first. Too quickly.", 800);
+            print_slowly("\"This is a tragedy. But stability must come first.\"", 800);
+            wait_for_space();
+            
+            if (state->evidence_flags & EV_RESHUFFLE_PLAN) {
+                print_slowly("\nYou mention the reshuffle plan.", 600);
+                print_slowly("His face tightens.", 600);
+                print_slowly("\"Yes. He was going to remove me. After everything I did for this country.\"", 800);
+                wait_for_space();
+                suspect->known_contradictions |= (1 << 0);
+            }
+            
+            print_slowly("\n\"Did you threaten him?\"", 600);
+            print_slowly("\"No. I argued. That's not a crime.\"", 800);
+            break;
 }
