@@ -124,27 +124,13 @@ Reach different conclusions based on your investigation:
 ```bash
 # Clone the repository
 git clone https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
-cd 48-hours-before-dawn
 
-# Navigate to game directory
-cd crime_scene
+# Build and run 
+make run
 
-# Build and run (fastest method)
-make && ./crime_scene_
-```
-
-### Alternative Build Options
-
-```bash
-# Precompiled version (if available)
-./crime_scene_
-
-# Clean build from source
-make clean && make && ./crime_scene_
-
-# Debug build with GDB support
-make debug
-gdb ./crime_scene_
+# Rebuild and Run
+make clean
+run
 ```
 
 ### 🎮 Controls
