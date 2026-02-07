@@ -124,10 +124,14 @@ Reach different conclusions based on your investigation:
 ```bash
 # Clone the repository
 git clone https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
+```
 
+```bash
 # Build and run 
 make run
+```
 
+```bash
 # Rebuild and Run
 make clean
 make run
