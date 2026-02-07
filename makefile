@@ -1,6 +1,6 @@
 # Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -O2
+CFLAGS = -Wall -Wextra -Wno-unused-parameter -std=c99 -O2
 LDFLAGS =
 
 # Directories
