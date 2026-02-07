@@ -2,7 +2,7 @@
 .DS_Store
 
 # Build output
-crime_scene
+crime_scene_
 *.out
 *.exe
 
@@ -22,7 +22,7 @@ obj/
 *.dSYM/
 
 # Save data / runtime state
-crime_scene.dat
+crime_scene_.dat
 
 # Logs
 *.log

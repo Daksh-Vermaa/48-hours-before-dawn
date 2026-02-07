@@ -11,7 +11,7 @@
 #define NUM_SUSPECTS 4
 #define NUM_LOCATIONS 6
 #define MAX_EVIDENCE 32
-#define SAVE_FILE "crime_scene.dat" //Change save file name
+#define SAVE_FILE "crime_scene_.dat" //Change save file name
 
 /* Locations IDs */
 typedef enum
