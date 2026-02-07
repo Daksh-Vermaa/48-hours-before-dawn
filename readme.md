@@ -63,7 +63,7 @@ cd crime_scene
 make
 
 # Run
-./crime_scene_
+./crime_scene_ or run
 ```
 
 Controls:
