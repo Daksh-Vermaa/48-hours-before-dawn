@@ -1,6 +1,7 @@
+#include <string.h>
+
 #include "evidence.h"
 #include "../ui/ui.h"
-#include <string.h>
 
 void init_evidence(Evidence evidence_list[]) {
     int idx = 0;
@@ -45,7 +46,7 @@ void init_evidence(Evidence evidence_list[]) {
     evidence_list[idx].discovered = 0;
     idx++;
 
-    /* Vial Replacement */
+    /* Vial Replacement Clue */
     evidence_list[idx].id = idx;
     strcpy(evidence_list[idx].name, "Replaced Medication Vial");
     strcpy(evidence_list[idx].description, "Vitamin injection vial was tampered with.");

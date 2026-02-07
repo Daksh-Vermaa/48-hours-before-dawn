@@ -10,15 +10,13 @@ void init_game_state(GameState *state) {
     state->game_over = 0;
     state->accusation_made = 0;
     state->accused_suspect = -1;
-    for (int i = 0; i < NUM_SUSPECTS; i++)
-    {
+    for (int i = 0; i < NUM_SUSPECTS; i++) {
         state->suspect_trust[i] = 50; /* Neutral trust */
     }
 }
 
 void update_game_state(GameState *state) {
-    if (state -> hours_remaining <= 0)
-    {
+    if (state -> hours_remaining <= 0) {
         state->game_over = 1;
         state->ending_type = END_TIMEOUT;
     }
@@ -39,8 +37,8 @@ int check_win_condition(GameState *state, int accused) {
     /* Check if Home Minister and NSA are both implicated (conspiracy) */
     int has_required_evidence = (state->evidence_flags & required_evidence) == required_evidence;
 
-    /* The true killer is the NSA (Meera Iyer) as mastermind */
-    /* But the conspiracy involves Home Minister too */
+    /* The true killer is the NSA (Meera Iyer) as mastermind
+    But the conspiracy involves Home Minister too */
 
     if (accused == SUSPECT_NSA && has_required_evidence) {
         state->ending_type = END_TRUE_RESOLUTION;

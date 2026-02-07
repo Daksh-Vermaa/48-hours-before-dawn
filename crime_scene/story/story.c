@@ -1,7 +1,8 @@
+#include <stdio.h>
+
 #include "story.h"
 #include "../ui/ui.h"
 #include "../suspects/suspects.h"
-#include <stdio.h>
 
 void play_intro(void) {
 
@@ -181,6 +182,8 @@ void play_ending(GameState *state, Suspect suspects[]) {
     clear_screen();
     print_separator();
     switch(state->ending_type) {
+
+        /* Case - 1 */
         case END_TRUE_RESOLUTION:
             printf("\n              ENDING: TRUE RESOLUTION\n");
             print_separator();
@@ -215,6 +218,7 @@ void play_ending(GameState *state, Suspect suspects[]) {
             print_slowly("never leaves quietly.", 1500);
             break;
             
+        /* Case - 2 */
         case END_PARTIAL_TRUTH:
             printf("\n              ENDING: PARTIAL TRUTH\n");
             print_separator();
@@ -237,6 +241,7 @@ void play_ending(GameState *state, Suspect suspects[]) {
             print_slowly("Always has. Always will.", 1200);
             break;
             
+        /* Case - 3 */
         case END_FALSE_ACCUSATION:
             printf("\n              ENDING: FALSE ACCUSATION\n");
             print_separator();
@@ -256,6 +261,7 @@ void play_ending(GameState *state, Suspect suspects[]) {
             print_slowly("And the truth stays buried.", 1500);
             break;
             
+        /* Case - 4 */
         case END_TIMEOUT:
             printf("\n              ENDING: MEDIA LEAK\n");
             print_separator();

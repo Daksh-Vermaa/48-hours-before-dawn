@@ -7,10 +7,14 @@
 #include "suspects/suspects.h"
 #include "evidence/evidence.h"
 #include "locations/locations.h"
+#include "save/save.h"
 
 void display_main_menu(GameState *state, Location locations[], Suspect suspects[], Evidence evidence_list[]);
+
 void new_game(GameState *state, Location locations[], Suspect suspects[], Evidence evidence_list[]);
+
 void continue_game(GameState *state, Location locations[], Suspect suspects[], Evidence evidence_list[]);
+
 int main(void) {
     GameState state;
     Location locations[NUM_LOCATIONS];

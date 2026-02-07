@@ -1,8 +1,9 @@
+#include <string.h>
+
 #include "locations.h"
 #include "../ui/ui.h"
 #include "../evidence/evidence.h"
 #include "../suspects/suspects.h"
-#include <string.h>
 
 void init_locations(Location locations[]) {
 
@@ -70,6 +71,8 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
     print_header(loc->name, state->hours_remaining);
     
     switch(location_id) {
+
+        /* Case - 1 */
         case LOC_PM_OFFICE:
             print_slowly("You return to the Prime Minister's study.", 800);
             print_slowly("The smell of power lingers. Polished wood. Old paper. Faint tea leaves.", 800);
@@ -91,11 +94,13 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
                 collect_evidence(state, EV_NOTEBOOK);
                 collect_evidence(state, EV_RESHUFFLE_PLAN);
                 collect_evidence(state, EV_TEA_CUP);
-            } else {
+            }
+            else {
                 print_slowly("\nNothing new here. The room has already told you its secrets.", 800);
             }
             break;
         
+        /* Case - 2 */
         case LOC_MEDICAL_WING:
             print_slowly("The hospital smells like disinfectant and guilt.", 800);
             wait_for_space();
@@ -122,7 +127,7 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             }
             break;
 
-        
+        /* Case - 3 */
         case LOC_INTEL_ROOM:
             print_slowly("Screens glow softly in the dark room.", 800);
             print_slowly("Surveillance logs appear clean.", 800);
@@ -145,6 +150,7 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             }
             break;
         
+        /* Case - 4 */
         case LOC_PRESS_AREA:
             print_slowly("Kavita Rao stands with her phone switched off.", 800);
             print_slowly("It vibrates constantly in her hand.", 800);
@@ -158,6 +164,7 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             print_slowly("\"Whatever truth you have... make sure it's solid.\"", 1000);
             break;
             
+        /* Case - 5 */
         case LOC_INTERROGATION:
             print_slowly("Four suspects. Four versions of truth.", 800);
             printf("\nWho do you want to interrogate?\n");
@@ -173,6 +180,7 @@ void visit_location(GameState *state, Location locations[], Suspect suspects[], 
             }
             return; /* Time already deducted in interrogate */
             
+        /* Case - 6 */
         case LOC_DETECTIVE_OFFICE:
             print_slowly("Your office. A quiet space to think.", 800);
             printf("\n  1. Review evidence board\n");

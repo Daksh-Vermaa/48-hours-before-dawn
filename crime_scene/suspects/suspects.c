@@ -1,8 +1,10 @@
-#include "suspects.h"
-#include "../ui/ui.h"
 #include <string.h>
 
+#include "suspects.h"
+#include "../ui/ui.h"
+
 void init_suspects(Suspect suspects[]) {
+
     /* Home Affairs Minister - Arvind Kaul */
     strcpy(suspects[SUSPECT_HOME_MINISTER].name, "Arvind Kaul (Home Affairs Minister)");
     suspects[SUSPECT_HOME_MINISTER].is_killer = 1; /* Part of conspiracy */
@@ -36,6 +38,37 @@ void init_suspects(Suspect suspects[]) {
     suspects[SUSPECT_CHIEF_STAFF].times_questioned = 0;
 }
 
+const char* get_suspect_name(int suspect_id) {
+    switch(suspect_id) {
+        case SUSPECT_HOME_MINISTER: return "Arvind Kaul";
+        case SUSPECT_NSA: return "Meera Iyer";
+        case SUSPECT_PHYSICIAN: return "Dr. Raghav Sen";
+        case SUSPECT_CHIEF_STAFF: return "Nalin Verma";
+        default: return "Unknown";
+    }
+}
+
+void update_suspect_trust(Suspect *suspect, int change) {
+    suspect->trust += change;
+    if (suspect->trust < 0) suspect->trust = 0;
+    if (suspect->trust > 100) suspect->trust = 100;
+}
+
+int check_contradiction_available(GameState *state, int suspect_id) {
+    switch(suspect_id) {
+        case SUSPECT_HOME_MINISTER:
+        return (state->evidence_flags & EV_RESHUFFLE_PLAN) != 0;
+        case SUSPECT_NSA:
+        return (state->evidence_flags & EV_CAMERA_GAP) != 0;
+        case SUSPECT_PHYSICIAN:
+        return (state->evidence_flags & EV_ENZYME_DATA) != 0;
+        case SUSPECT_CHIEF_STAFF:
+        return (state->evidence_flags & EV_MEETING_DELETION) != 0;
+        default:
+        return 0;
+    }
+}
+
 void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
     
     Suspect *suspect = &suspects[suspect_id];
@@ -48,6 +81,8 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
     wait_for_space();
 
     switch(suspect_id) {
+
+        /* Case - 1 */
         case SUSPECT_HOME_MINISTER:
             print_slowly("Arvind Kaul speaks first. Too quickly.", 800);
             print_slowly("\"This is a tragedy. But stability must come first.\"", 800);
@@ -65,6 +100,7 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
             print_slowly("\"No. I argued. That's not a crime.\"", 800);
             break;
         
+        /* Case - 2 */
         case SUSPECT_NSA:
             print_slowly("Meera Iyer studies you the way soldiers study terrain.", 800);
             print_slowly("\"Ask your questions, Detective.\"", 800);
@@ -81,6 +117,7 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
             }
             break;
 
+        /* Case - 3 */
         case SUSPECT_PHYSICIAN:
             print_slowly("Dr. Sen looks exhausted. Offended.", 800);
             print_slowly("\"I've managed his health for twelve years.\"", 800);
@@ -100,6 +137,7 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
             }
             break;
 
+        /* Case - 4 */
         case SUSPECT_CHIEF_STAFF:
             print_slowly("Nalin Verma hasn't slept in days.", 800);
             print_slowly("\"He trusted the people in this room.\"", 800);
@@ -113,7 +151,8 @@ void interrogate_suspect(GameState *state, Suspect suspects[], int suspect_id) {
                 suspect->known_contradictions |= (1 << 0);
             }
             break;
-}
+    }
+
     wait_for_space();
     deduct_time(state, 2);
 }

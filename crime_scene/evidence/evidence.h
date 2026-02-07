@@ -1,5 +1,6 @@
 #ifndef EVIDENCE_H
 #define EVIDENCE_H
+
 #include "../game.h"
 
 /* Initialize Evidences */

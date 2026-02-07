@@ -1,12 +1,12 @@
 #define _DEFAULT_SOURCE
 
-#include "ui.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <termios.h>
+
+#include "ui.h"
 
 void clear_screen(void) {
     printf("\033[2J\033[H");

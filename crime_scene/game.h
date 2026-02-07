@@ -24,7 +24,7 @@ typedef enum
     LOC_DETECTIVE_OFFICE = 5
 } LocationID;
 
-/* Suspect IDs */
+/* Suspects IDs */
 typedef enum
 {
     SUSPECT_HOME_MINISTER = 0,
@@ -33,7 +33,7 @@ typedef enum
     SUSPECT_CHIEF_STAFF = 3
 } SuspectID;
 
-/* Evidence Flag */
+/* Evidence Flags */
 typedef enum
 {
     EV_NOTEBOOK = (1 << 0),
