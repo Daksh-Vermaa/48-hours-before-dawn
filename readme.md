@@ -119,19 +119,19 @@ Reach different conclusions based on your investigation:
 - **Make** build tool
 - **POSIX-compatible OS** (Linux, macOS)
 
-### Clone & Run
+## Clone & Run
 
-# Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
 ```
 
-# Build and run 
+### Build and run 
 ```bash
 make run
 ```
 
-# Rebuild and Run
+### Rebuild and Run
 ```bash
 make clean
 make run
