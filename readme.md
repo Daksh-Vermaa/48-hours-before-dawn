@@ -56,6 +56,9 @@ You have **48 hours** before the media leaks the story and chaos erupts.
 ## 🚀 Quick Start
 
 ```bash
+#Clone Repo
+https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
+
 # Navigate to project directory
 cd crime_scene
 
