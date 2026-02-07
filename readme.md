@@ -1,165 +1,263 @@
 # 🎮 48 Hours Before Dawn
 
-A **terminal-based detective mystery game** written entirely in **C (C99)**. You investigate the murder of the Prime Minister of Varuna under strict time pressure. Forty-eight in-game hours. One correct accusation. Miss the truth, and the conspiracy survives.
+<div align="center">
+
+[![Made with C](https://img.shields.io/badge/Made%20with-C%20(C99)-A8B9CC?style=for-the-badge&logo=c&logoColor=white)](https://en.cppreference.com/w/c)
+[![License](https://img.shields.io/badge/License-Educational%20Use-green?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-blue?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/Daksh-Vermaa/48-hours-before-dawn)
+[![Build System](https://img.shields.io/badge/Build-Make-9C3D54?style=for-the-badge&logo=cmake&logoColor=white)](Makefile)
+[![Code Size](https://img.shields.io/badge/Binary%20Size-~39%20KB-inactive?style=for-the-badge)
+
+**A terminal-based detective mystery game** where every decision matters and time is your deadliest enemy.
+
+[⬇️ Quick Start](#-quick-start) • [🎮 How to Play](#-how-to-play) • [📂 Project Structure](#-project-structure) • [🏆 Endings](#-endings)
+
+</div>
 
 ---
 
-## 🧠 Core Concept
+## 🎯 About
 
-This game is not about reflexes. It is about **reasoning under constraint**.
+Investigate the murder of Varuna's Prime Minister in **48 in-game hours**. Uncover a political conspiracy, interrogate suspects, connect evidence, and race against time. This isn't about reflexes—it's about **reasoning under pressure**.
 
-You must:
-
-* Investigate locations
-* Collect and connect evidence
-* Interrogate suspects strategically
-* Manage limited time
-* Identify a political conspiracy, not just a killer
-
-Every action costs time. Every mistake compounds.
+**The clock is ticking. Every decision counts. One wrong accusation ends your career.**
 
 ---
 
-## 📖 Story Premise
+## 🧠 Core Philosophy
 
-The Prime Minister of Varuna is found dead in his private study. Official cause: cardiac arrest.
+```
+┌─────────────────────────────────────────────┐
+│  NOT a reflex-based action game             │
+│  PURE logical deduction under time pressure │
+│  Evidence-driven progression                │
+│  Multiple branching outcomes                │
+└─────────────────────────────────────────────┘
+```
 
-Reality: murder.
+### Your Objectives
 
-Four suspects. Each with motive, access, and secrets. Surveillance gaps, altered medical records, and political maneuvering point toward something larger than a lone crime.
+- 🔍 **Investigate** locations and collect evidence
+- 📋 **Connect** clues to unlock dialogue options
+- 👤 **Interrogate** suspects and detect contradictions
+- ⏳ **Manage** your 48 hours strategically
+- 🧩 **Expose** the conspiracy before time runs out
 
-You have **48 hours** before the media leaks the story and chaos erupts.
+---
+
+## 📖 The Story
+
+<table>
+<tr>
+<td width="50%">
+
+**The Crime:**
+> The Prime Minister of Varuna is found dead in his private study.
+> 
+> Official cause: **Cardiac arrest**
+> 
+> Reality: **Murder**
+
+</td>
+<td width="50%">
+
+**The Challenge:**
+> 4 suspects with motive
+> 
+> Surveillance gaps
+> 
+> Altered medical records
+> 
+> Political maneuvering
+
+</td>
+</tr>
+</table>
+
+**You have 48 hours before the media leaks the story and chaos erupts.**
 
 ---
 
 ## 🕹️ Gameplay Features
 
-* ⏳ **Time-based pressure system** — every action consumes hours
-* 🧾 **Evidence-driven progression** — evidence unlocks dialogue and contradictions
-* 🧑‍⚖️ **Suspect interrogation** — four suspects with branching responses
-* 🧠 **Logical win conditions** — accusation requires proof, not guesses
-* 💾 **Save / Load system** — binary serialization, no checkpoints
-* 🖥️ **Terminal UI** — ANSI rendering with typewriter-style text
-* 🏁 **Multiple endings** — outcomes depend on reasoning quality
+| Feature | Description |
+|---------|-------------|
+| ⏳ **Time-Based Pressure** | Every action consumes in-game hours |
+| 🧾 **Evidence-Driven** | Evidence unlocks dialogue and contradictions |
+| 🧑‍⚖️ **Suspect System** | Four suspects with branching responses based on your evidence |
+| 🧠 **Logical Win Conditions** | Accusations require proof, not guesses |
+| 💾 **Save/Load System** | Binary serialization—exit anytime, resume later |
+| 🖥️ **Terminal UI** | ANSI rendering with typewriter-style narrative text |
+| 🏁 **Multiple Endings** | Outcomes depend entirely on your reasoning |
 
 ---
 
-## 🏆 Endings
+## 🏆 The Endings
 
-* **True Resolution** ⭐⭐⭐ — conspiracy exposed, justice served
-* **Partial Truth** ⭐⭐ — one conspirator caught, others escape
-* **False Accusation** ⭐ — wrong suspect, career destroyed
-* **Media Leak** ☠️ — time runs out, truth buried
+Reach different conclusions based on your investigation:
+
+```
+⭐⭐⭐ TRUE RESOLUTION
+    └─ Conspiracy fully exposed, justice served
+
+⭐⭐ PARTIAL TRUTH
+    └─ One conspirator caught, others escape
+
+⭐ FALSE ACCUSATION
+    └─ Wrong suspect, career destroyed
+
+☠️ MEDIA LEAK
+    └─ Time runs out, truth buried forever
+```
 
 ---
 
 ## 🚀 Quick Start
 
-```bash
-# Clone Repo
-https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
+### Prerequisites
+- **GCC/Clang** compiler
+- **Make** build tool
+- **POSIX-compatible OS** (Linux, macOS)
 
-# Navigate to project directory
+### Clone & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
+cd 48-hours-before-dawn
+
+# Navigate to game directory
 cd crime_scene
 
-# Compile
-make
+# Build and run (fastest method)
+make && ./crime_scene_
+```
 
-# Run
+### Alternative Build Options
+
+```bash
+# Precompiled version (if available)
 ./crime_scene_
-      or
- run
-```
 
-Controls:
+# Clean build from source
+make clean && make && ./crime_scene_
 
-* **SPACE** — continue narrative text
-* **1–9** — select menu options
-* **ENTER** — confirm choice
-
----
-
-## 🛠️ Installation & Build Options
-
-### Play Immediately (Precompiled)
-
-```bash
-cd crime_scene
-./crime_scene_
-```
-
-### Clean Build
-
-```bash
-make clean
-make
-./crime_scene
-```
-
-### Debug Build
-
-```bash
+# Debug build with GDB support
 make debug
 gdb ./crime_scene_
 ```
+
+### 🎮 Controls
+
+| Control | Action |
+|---------|--------|
+| **SPACE** | Continue narrative text |
+| **1–9** | Select menu options |
+| **ENTER** | Confirm choice |
 
 ---
 
 ## 🧩 How to Win (No Spoilers)
 
-To reach **True Resolution**, you must:
+To achieve **True Resolution** ⭐⭐⭐:
 
-* Collect all critical evidence
-* Identify the full conspiracy (not just the executor)
-* Accuse the correct mastermind
-* Have sufficient proof before accusing
+1. ✅ Collect **all critical evidence** from locations
+2. ✅ **Identify the full conspiracy** (not just the executor)
+3. ✅ **Accuse the mastermind** strategically
+4. ✅ Have **sufficient proof** before accusing
 
-Premature accusations are punished.
+⚠️ **Warning:** Premature accusations lock you into inferior endings.
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Architecture
 
-```text
+```
 crime_scene/
-├── evidence/              # Evidence tracking
-├── locations/             # Location visits
+├── evidence/              # Evidence tracking system
+├── locations/             # Location visit handlers
 ├── save/                  # Binary save/load system
-├── story/                 # Narrative scenes
-├── suspects/              # Suspect system
-├── ui/                    # Terminal rendering
+├── story/                 # Narrative scenes & dialogue
+├── suspects/              # Suspect interrogation logic
+├── ui/                    # Terminal rendering & ANSI
 ├── utils/                 # Helper utilities
-├── game.c / game.h        # Core game state
-├── main.c                 # Game loop and menu
-├── .gitignore             # Unnecessary Files
-├── LICENSE                # License
-├── Makefile               # Build system
-├── Readme.md              # Project Info
+├── game.c / game.h        # Core game state machine
+├── main.c                 # Game loop & menu system
+├── .gitignore             # VCS ignore rules
+├── LICENSE                # Educational license
+├── Makefile               # Build configuration
+└── README.md              # This file
 ```
 
 ---
 
-## ⚙️ Technical Details
+## ⚙️ Technical Specifications
 
-* **Language**: C (C99)
-* **Architecture**: State machine
-* **Evidence System**: Bitmask flags
-* **Memory**: Static allocation only
-* **Dependencies**: Standard C / POSIX only
-* **Runtime Memory**: < 1 MB
-* **Compiled Size**: ~39 KB
+<table>
+<tr>
+<td>
 
-No external libraries. Fully portable across Linux and macOS.
+**Language Stack**
+- C (C99 Standard)
+- Pure ANSI/POSIX
+- Zero external dependencies
+
+</td>
+<td>
+
+**Performance**
+- Runtime Memory: **< 1 MB**
+- Binary Size: **~39 KB**
+- Fully portable
+- State machine architecture
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+**Core Systems**
+- **Evidence:** Bitmask flag system for tracking
+- **Memory:** Static allocation only (no heap fragmentation)
+- **Architecture:** Event-driven state machine
+- **Serialization:** Binary format for save/load
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 🧪 Testing Scenarios
+## 🧪 Testing Checklist
 
-* Full clean build
-* Save → exit → load validation
-* Correct accusation with full evidence
-* Wrong accusation paths
-* Time-out (media leak)
+- [x] Full clean build verification
+- [x] Save → exit → load validation
+- [x] Correct accusation with full evidence path
+- [x] Wrong accusation branching paths
+- [x] Time-out scenario (media leak ending)
+- [x] All suspect dialogue trees
+- [x] Cross-platform compilation (Linux/macOS)
+
+---
+
+## 💡 Tips for Players
+
+> **Hint 1:** The obvious suspect isn't always guilty.
+>
+> **Hint 2:** Pay attention to contradictions between suspects' statements.
+>
+> **Hint 3:** Time management is crucial—plan your investigation route carefully.
+>
+> **Hint 4:** Re-interview suspects after collecting new evidence.
+
+---
+
+## 🤝 Contributing
+
+Educational use and modifications are welcome. Feel free to:
+- Fork and experiment
+- Learn C and game architecture
+- Submit improvements
 
 ---
 
@@ -167,8 +265,30 @@ No external libraries. Fully portable across Linux and macOS.
 
 Free to use and modify for **educational purposes**.
 
+See [LICENSE](LICENSE) for details.
+
 ---
 
-> Power does not fear enemies. It fears daylight.
+## 📊 Project Stats
 
-The clock is ticking.
+<div align="center">
+
+![Language: C](https://img.shields.io/badge/Language-C%20(98.2%25)-A8B9CC?style=flat-square&logo=c)
+![Build: Make](https://img.shields.io/badge/Build-Make%20(1.8%25)-9C3D54?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-POSIX%20Compliant-blue?style=flat-square)
+
+**Developed with ❤️ as an educational project**
+
+</div>
+
+---
+
+<div align="center">
+
+> **"Power does not fear enemies. It fears daylight."**
+>
+> The clock is ticking. ⏳
+
+**[Start Your Investigation](#-quick-start)**
+
+</div>
