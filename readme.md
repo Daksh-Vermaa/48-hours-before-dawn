@@ -121,18 +121,17 @@ Reach different conclusions based on your investigation:
 
 ### Clone & Run
 
-```bash
 # Clone the repository
+```bash
 git clone https://github.com/Daksh-Vermaa/48-hours-before-dawn.git
 ```
-
-```bash
 # Build and run 
+```bash
 make run
 ```
 
-```bash
 # Rebuild and Run
+```bash
 make clean
 make run
 ```
