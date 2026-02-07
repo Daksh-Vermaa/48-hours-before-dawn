@@ -130,7 +130,7 @@ make run
 
 # Rebuild and Run
 make clean
-run
+make run
 ```
 
 ### 🎮 Controls
